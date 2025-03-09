@@ -1,0 +1,37 @@
+*{ box-sizing: border-box;}
+body{
+    height: 100%;
+    width: 100%;
+}
+.bg-nav{
+    background-color: #db6930;
+    font-family: 'e-ukrR';
+}
+.navi{ background-color: #db6930; }
+.navi ul{
+    list-style-type: none;
+    gap: 20px;
+}
+.navi ul li{ display: inline-block;}
+.navi ul li a{
+    text-decoration: none;
+    color: aliceblue;
+}
+.navi ul li a:hover{
+   color: #000;
+   transition: 0.3s ease-in-out;
+}
+.Learnix_logo{ width: 32px; height: 32px;}
+.btn_out{
+    border: none;
+  background-color: #ffffff;
+  border-radius: 10px;
+  margin-left: 20px;
+  padding: 4px;
+}
+.btn_out:hover{
+    background-color: rgb(3, 3, 3);
+    color: #f4f4f4;
+    border-radius: 10px;
+    transition: 0.2s ease-in-out;
+  }

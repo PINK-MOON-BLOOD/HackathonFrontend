@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+*{
+ box-sizing: border-box;
+}
+@font-face {
+    font-family: 'e-ukr';
+    src: url('/fonts/e-Ukraine-Medium.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'e-ukrB';
+    src: url('/fonts/e-Ukraine-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'e-ukrL';
+    src: url('/fonts/e-Ukraine-Light.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'e-ukrR';
+    src: url('/fonts/e-Ukraine-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'e-ukrT';
+    src: url('/fonts/e-Ukraine-Thin.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'e-ukrUL';
+    src: url('/fonts/e-Ukraine-UltraLight.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+

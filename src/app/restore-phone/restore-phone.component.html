@@ -1,0 +1,19 @@
+<body>
+    <div class="d-flex justify-content-center align-content-center my-5  conteiner_form">
+       <div class="shadow p-4 form">
+            <div class="d-flex justify-content-center my-3"> <img src="/Logo.svg" alt="Лого"> </div>
+            <div class="d-flex justify-content-center drop_password"><p>Скидання пароля</p></div> 
+
+            <form (ngSubmit)="Restore_phone()">
+                <div class="d-grid justify-content-center align-content-center">
+                    <label for="phone">Номер телефону</label>
+                    <input type="number" required id="phone"  [(ngModel)]="Phone_user"  name="phone"> 
+                    </div>
+                    <div class=" d-flex flex-column  list_a">
+                        <button type="button" class="p-1 for_phone">Скинути</button>
+                        <a href="choose-restore" class="back">Назад</a>
+                      </div>
+            </form>
+        </div>
+   </div>   
+   </body>
