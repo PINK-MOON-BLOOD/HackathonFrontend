@@ -13,7 +13,8 @@ import { ChooseRestoreComponent } from './choose-restore/choose-restore.componen
 import { RestoreEmailComponent } from './restore-email/restore-email.component';
 import { RestorePhoneComponent } from './restore-phone/restore-phone.component';
 import { LoginAdnRegestService } from './login-adn-regest.service';
-
+import { NewPassword1Component } from './new-password1/new-password1.component';
+import { NewPassword2Component } from './new-password2/new-password2.component';
 
 
 
@@ -30,6 +31,8 @@ export const routes: Routes = [
   {path: 'registration' , component:RegistrationComponent},
   {path: 'choose-restore' , component:ChooseRestoreComponent},
   {path: 'restore-email' , component:RestoreEmailComponent},
-  {path: 'restore-phone' , component:RestorePhoneComponent}
+  {path: 'restore-phone' , component:RestorePhoneComponent},
+  {path: 'new-password1' , component:NewPassword1Component},
+  {path: 'new-password2' , component:NewPassword2Component}
 
 ];
