@@ -18,21 +18,28 @@ export class NewPassword2Component {
 
   constructor(private router:Router, private http:HttpClient){}
 
-  New_passwor_for_email(){
+  New_passwor_for_email() {
+    const token = new URLSearchParams(window.location.search).get('token'); // Отримати токен з URL
+    if (!token) {
+      this.errorMessage = 'Invalid or missing token';
+      return;
+    }
+
     const new_pass = {
-      
-      newPassword:this.New_password
+      newPassword: this.New_password
     };
 
-    this.http.post('http://localhost:8080/api/users/reset-password-email', new_pass)
-    .subscribe({
-      next: (response: any) => {
-        console.log('Restore Successful', response);
-      },
-      error: (error) => {
-        this.errorMessage = 'Restore Failed';
-        console.error('Restore failed', error);
-      }
-    });
+    this.http.post('http://localhost:8080/api/users/reset-password-email?token=${token}', new_pass)
+      .subscribe({
+        next: (response: any) => {
+          console.log('Restore Successful', response);
+          this.router.navigate(['/login']); // Перенаправлення після успішного відновлення
+        },
+        error: (error) => {
+          this.errorMessage = 'Restore Failed';
+          console.error('Restore failed', error);
+        }
+      });
   }
+
 }

@@ -26,7 +26,7 @@ export class RestoreEmailComponent {
       .subscribe({
         next: (response: any) => {
           console.log('Restore message Successful', response);
-          this.router.navigate(['/new-password2'])
+          this.router.navigate(['/new-page2-onlytext'])
         },
         error: (error) => {
           this.errorMessage = 'Restore message Failed';

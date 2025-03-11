@@ -15,7 +15,7 @@ import { RestorePhoneComponent } from './restore-phone/restore-phone.component';
 import { LoginAdnRegestService } from './login-adn-regest.service';
 import { NewPassword1Component } from './new-password1/new-password1.component';
 import { NewPassword2Component } from './new-password2/new-password2.component';
-
+import { NewPage2OnlytextComponent } from './new-page2-onlytext/new-page2-onlytext.component';
 
 
 export const routes: Routes = [
@@ -33,6 +33,7 @@ export const routes: Routes = [
   {path: 'restore-email' , component:RestoreEmailComponent},
   {path: 'restore-phone' , component:RestorePhoneComponent},
   {path: 'new-password1' , component:NewPassword1Component},
-  {path: 'new-password2' , component:NewPassword2Component}
+  {path: 'new-password2' , component:NewPassword2Component},
+  {path: 'new-page2-onlytext' , component:NewPage2OnlytextComponent}
 
 ];

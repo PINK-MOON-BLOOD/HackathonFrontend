@@ -5,8 +5,6 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginAdnRegestService } from '../login-adn-regest.service';
-// import { firebaseConfig } from '../../environments/environment';
-// import { getAuth, signInWithRedirect, GoogleAuthProvider, getRedirectResult, signOut, onAuthStateChanged, signInWithCredential } from 'firebase/auth';
 
 
 @Component({
@@ -25,7 +23,6 @@ export class LoginComponent implements OnInit {
   errorMessage: string | null = null;
   isLoggedIn: boolean = false;
 
-  // provider: GoogleAuthProvider;
 
   togglePasswordVisibility(){
     this.passwordVisible = !this.passwordVisible;
@@ -36,33 +33,10 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = isLoggedIn;
     });
 
-    // this.provider = new GoogleAuthProvider();
   }
 
   ngOnInit() {
-    // const auth = getAuth();
-
-    // onAuthStateChanged(auth, (user) => {
-    //   if (user) {
-    //     localStorage.setItem('token', user.refreshToken);
-    //     this.loginAdnRegestService.changeLoginState(true); 
-    //   } else {
-    //     this.loginAdnRegestService.changeLoginState(false);  
-    //   }
-    // });
-  
-    // getRedirectResult(auth)
-    //   .then((result) => {
-    //     if (result?.user) {
-    //       localStorage.setItem('token', result.user.refreshToken);
-    //       this.loginAdnRegestService.changeLoginState(true);  
-    //     }
-    //   })
-    //   .catch((error) => {
-    //     console.error("Помилка автентифікації через Google:", error);
-    //     this.errorMessage = "Помилка входу через Google. Спробуйте ще раз.";
-    //   });
-  
+ 
     if (localStorage.getItem('token')) {
       this.loginAdnRegestService.changeLoginState(true);  
     }
@@ -76,7 +50,7 @@ export class LoginComponent implements OnInit {
           console.log('Google авторизація пройшла успішно', response);
   
           // Після успішної авторизації робимо GET запит на отримання поточного користувача
-          this.http.get('http://localhost:8080/api/users/current-user').subscribe(
+          this.http.get<any[]>(`http://localhost:8080/api/users/current-user`).subscribe(
             (userResponse) => {
               console.log('Поточний користувач:', userResponse);
               this.router.navigate(['/']);
@@ -91,8 +65,7 @@ export class LoginComponent implements OnInit {
         }
       );
 
-    // const auth = getAuth();
-    // signInWithRedirect(auth, this.provider);
+ 
   }
 
 
