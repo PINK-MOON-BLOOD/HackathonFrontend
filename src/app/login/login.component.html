@@ -2,17 +2,17 @@
     <div class="d-flex justify-content-center align-content-center my-5  conteiner_form">
        <div class="shadow p-4 form">
            <form (ngSubmit)="Login()" class="registration-form">
-               
+
             <div class="d-flex justify-content-center mb-2"><img class=" Logo_in_forms" src="/Logo.svg" alt=""></div>
             <div class="d-flex justify-content-center">         <p class="text">Вітаємо в LearNix</p>         </div>
-               
+
             <div class="d-grid justify-content-center align-content-center">
-                
+
             <div>
-            <label for="email">Пошта</label>
-            <input type="email" required id="email"  [(ngModel)]="Email_user"  name="email"> 
+            <label for="login">Логін</label>
+            <input type="text" required id="login"  [(ngModel)]="Login_user"  name="login">
             </div>
-   
+
             <div>
             <label for="password">Пароль</label>
             <div class="input_wrapper">
@@ -23,27 +23,27 @@
                <span *ngIf="!passwordVisible"><img  rel="preload"src="Eye action2.png" alt="Невидно" class="eye2"></span>
              </button>
             </div>
-            </div>  
+            </div>
             <div class="restore_conteiner">
-                <a href="choose-restore" class="choose_restore">Забули пароль?</a> 
+                <a href="choose-restore" class="choose_restore">Забули пароль?</a>
              </div>
-   
+
             <div class="contunium">
                 <button class="mt-3 px-5 py-1 bc">Увійти</button>
                 <p class="d-flex justify-content-center mb-0">або</p>
-                <a href="" class="google-button">
-                   <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" class="Google_logo">
-                   Продовжити з Google
-               </a>
+                <button type="button" class="google-button" (click)="Login_with_Google()">
+                  <img src="https://developers.google.com/identity/images/g-logo.png" alt="Google logo" class="Google_logo">
+                  Продовжити з Google
+                </button>
             </div>
-            
+
             </div>
-          
-            
+
+
             <p class="d-flex justify-content-center Do_you_have_account">Ще не зареєструвалися?<a href="registration">Зареєструватися</a></p>
-           
-        
-        </form> 
+
+
+        </form>
         </div>
-   </div>   
+   </div>
    </body>

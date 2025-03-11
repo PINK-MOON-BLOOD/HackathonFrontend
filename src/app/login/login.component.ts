@@ -5,6 +5,9 @@ import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginAdnRegestService } from '../login-adn-regest.service';
+// import { firebaseConfig } from '../../environments/environment';
+import { getAuth, signInWithRedirect, GoogleAuthProvider, getRedirectResult, signOut, onAuthStateChanged, signInWithCredential } from 'firebase/auth';
+
 
 @Component({
   selector: 'app-login',
@@ -16,12 +19,14 @@ import { LoginAdnRegestService } from '../login-adn-regest.service';
 
 export class LoginComponent implements OnInit {
   passwordVisible: boolean = false;
- 
-  Email_user: string ='';
+
+  Login_user: string ='';
   Password_user: string ='';
 
   errorMessage: string | null = null;
   isLoggedIn: boolean = false;
+
+  provider: GoogleAuthProvider;
 
   togglePasswordVisibility(){
     this.passwordVisible = !this.passwordVisible;
@@ -32,17 +37,53 @@ export class LoginComponent implements OnInit {
     this.loginAdnRegestService.isLoggedIn$.subscribe(isLoggedIn =>{
       this.isLoggedIn = isLoggedIn;
     });
+
+    this.provider = new GoogleAuthProvider();
   }
 
-  ngOnInit(){
-    if(localStorage.getItem('token')){
-      this.loginAdnRegestService.changeLoginState(true);
+  ngOnInit() {
+    const auth = getAuth();
+  
+    // Відстеження стану аутентифікації (перевірка після перезавантаження сторінки)
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        localStorage.setItem('token', user.refreshToken);
+        this.loginAdnRegestService.changeLoginState(true);  // Оновлюємо стан після входу
+      } else {
+        this.loginAdnRegestService.changeLoginState(false);  // Якщо користувач не аутентифікований
+      }
+    });
+  
+    // Отримання користувача після редіректу
+    getRedirectResult(auth)
+      .then((result) => {
+        if (result?.user) {
+          localStorage.setItem('token', result.user.refreshToken);
+          this.loginAdnRegestService.changeLoginState(true);  // Оновлюємо стан після входу через Google
+        }
+      })
+      .catch((error) => {
+        console.error("Помилка автентифікації через Google:", error);
+        this.errorMessage = "Помилка входу через Google. Спробуйте ще раз.";
+      });
+  
+    // Якщо користувач вже увійшов раніше, оновлюємо стан
+    if (auth.currentUser || localStorage.getItem('token')) {
+      this.loginAdnRegestService.changeLoginState(true);  // Якщо є токен, оновлюємо стан
     }
   }
 
+  Login_with_Google(){
+    const auth = getAuth();
+    signInWithRedirect(auth, this.provider);
+  }
+
+
+
+  
   Login(){
     const LoginData = {
-      email: this.Email_user,
+      login: this.Login_user,
       password: this.Password_user
     };
 
@@ -58,7 +99,7 @@ export class LoginComponent implements OnInit {
           this.loginAdnRegestService.changeLoginState(true);
 
           // Перенаправлення користувача на сторінку, вказану сервером
-          const redirectUrl = response.redirect || ' '; 
+          const redirectUrl = response.redirect || ' ';
           this.router.navigate([redirectUrl]);
         },
         error: (error) => {
