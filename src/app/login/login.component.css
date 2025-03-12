@@ -69,6 +69,7 @@ label{
 .Do_you_have_account a:hover{text-decoration: underline;} 
 
 .google-button{
+    margin-left: 13px;
     margin-top: 7px;
     padding: 3px;
     display: flex;
@@ -102,9 +103,9 @@ label{
     right: 5px;
     top:5px;
 }
-.restore_conteiner{
+/* .restore_conteiner{
     
-}
+} */
 .restore_conteiner .choose_restore{
     text-decoration: none;
     color: black;

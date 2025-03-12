@@ -18,7 +18,6 @@ import { LoginAdnRegestService } from './login-adn-regest.service';
 
 
 export class AppComponent implements OnInit {
-  // title = 'Hackathon';
 
   public isLogged: boolean = false;
 

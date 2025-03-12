@@ -28,6 +28,10 @@ export class RegistrationComponent {
 
   constructor(private http: HttpClient, private router: Router) {}
 
+  Login_with_Google(){
+    
+  }
+
   register(){
 
     const registrationData = {
