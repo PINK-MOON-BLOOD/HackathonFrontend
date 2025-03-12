@@ -1,11 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginAdnRegestService } from '../login-adn-regest.service';
-
 
 @Component({
   selector: 'app-login',
@@ -15,7 +14,7 @@ import { LoginAdnRegestService } from '../login-adn-regest.service';
   styleUrl: './login.component.css'
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent{
   passwordVisible: boolean = false;
 
   Login_user: string ='';
@@ -23,54 +22,22 @@ export class LoginComponent implements OnInit {
   errorMessage: string | null = null;
   isLoggedIn: boolean = false;
 
-
   togglePasswordVisibility(){
     this.passwordVisible = !this.passwordVisible;
   }
 
-  constructor(private http: HttpClient, private router: Router, private loginAdnRegestService: LoginAdnRegestService) {
+  constructor(private http: HttpClient, private router: Router, private loginAdnRegestService: LoginAdnRegestService,) {
     this.loginAdnRegestService.isLoggedIn$.subscribe(isLoggedIn =>{
       this.isLoggedIn = isLoggedIn;
     });
-
-  }
-
-  ngOnInit() {
- 
-    if (localStorage.getItem('token')) {
-      this.loginAdnRegestService.changeLoginState(true);  
-    }
-  }
-
-  Login_with_Google(){
-
-      // Спочатку робимо POST запит на авторизацію через Google
-      this.http.post('http://localhost:8080/oauth2/authorization/google', {}).subscribe(
-        (response) => {
-          console.log('Google авторизація пройшла успішно', response);
-  
-          // Після успішної авторизації робимо GET запит на отримання поточного користувача
-          this.http.get<any[]>(`http://localhost:8080/api/users/current-user`).subscribe(
-            (userResponse) => {
-              console.log('Поточний користувач:', userResponse);
-              this.router.navigate(['/']);
-            },
-            (error) => {
-              console.error('Помилка при отриманні поточного користувача:', error);
-            }
-          );
-        },
-        (error) => {
-          console.error('Помилка при авторизації через Google:', error);
-        }
-      );
-
- 
   }
 
 
+  Login_with_Google() {
+    window.location.href = 'http://localhost:8080/oauth2/authorization/google';
+  }
 
-  
+
   Login(){
     const LoginData = {
       login: this.Login_user,

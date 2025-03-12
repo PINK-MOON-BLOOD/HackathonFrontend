@@ -29,7 +29,11 @@ export class RegistrationComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   Login_with_Google(){
-    
+
+  }
+
+  Register_with_Google() {
+    window.location.href = 'http://localhost:8080/oauth2/authorization/google';
   }
 
   register(){

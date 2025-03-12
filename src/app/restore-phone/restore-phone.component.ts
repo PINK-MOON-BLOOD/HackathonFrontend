@@ -16,10 +16,10 @@ export class RestorePhoneComponent {
   errorMessage: string | null = null;
 
   constructor(private router: Router, private http: HttpClient) {
-        
+
   }
-  Restore_phone(){
-    const Restore_phoneData ={
+  Restore_phone() {
+    const Restore_phoneData = {
       phoneNumber: this.Phone_user
     };
 
@@ -27,13 +27,14 @@ export class RestorePhoneComponent {
       .subscribe({
         next: (response: any) => {
           console.log('Restore Successful', response);
-          this.router.navigate(['/new-password1'])
+          this.router.navigate(['/new-password1']);
         },
         error: (error) => {
           this.errorMessage = 'Restore Failed';
           console.error('Restore failed', error);
         }
       });
-
   }
+
+
 }

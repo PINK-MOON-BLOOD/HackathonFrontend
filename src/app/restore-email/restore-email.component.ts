@@ -22,7 +22,7 @@ export class RestoreEmailComponent {
       email: this.Email_user
     };
 
-    this.http.post('http://localhost:8080/api/users/request-password-reset-phone', Restore_emailData)
+    this.http.post('http://localhost:8080/api/users/request-password-reset-email', Restore_emailData)
       .subscribe({
         next: (response: any) => {
           console.log('Restore message Successful', response);

@@ -29,7 +29,7 @@ export class NewPassword2Component {
       newPassword: this.New_password
     };
 
-    this.http.post('http://localhost:8080/api/users/reset-password-email?token=${token}', new_pass)
+    this.http.post(`http://localhost:8080/api/users/reset-password-email?token=${token}`, new_pass)
       .subscribe({
         next: (response: any) => {
           console.log('Restore Successful', response);
