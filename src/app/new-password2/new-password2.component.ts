@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
+import { DaltonizmService } from '../daltonizm.service';
+
 @Component({
   selector: 'app-new-password2',
   standalone: true,
@@ -11,12 +13,18 @@ import { HttpClientModule } from '@angular/common/http';
   templateUrl: './new-password2.component.html',
   styleUrl: './new-password2.component.css'
 })
-export class NewPassword2Component {
+export class NewPassword2Component implements OnInit {
 
   New_password: string = '';
   errorMessage: string | null = null;
+  selectedClass: any = {};
+  constructor(private router:Router, private http:HttpClient, private daltonizmService : DaltonizmService){}
 
-  constructor(private router:Router, private http:HttpClient){}
+  ngOnInit(): void {
+    this.daltonizmService.selectedClass$.subscribe(selectedClass =>{
+      this.selectedClass = selectedClass;
+    });
+  }
 
   New_passwor_for_email() {
     const token = new URLSearchParams(window.location.search).get('token'); // Отримати токен з URL

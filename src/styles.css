@@ -1,6 +1,7 @@
 *{
  box-sizing: border-box;
 }
+
 @font-face {
     font-family: 'e-ukr';
     src: url('/fonts/e-Ukraine-Medium.otf') format('opentype');

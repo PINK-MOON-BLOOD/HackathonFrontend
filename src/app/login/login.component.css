@@ -1,4 +1,7 @@
-body{box-sizing: border-box; font-family: 'e-ukr';}
+body{box-sizing: border-box; font-family: 'e-ukr';
+    /* background-color: rgb(255, 46, 46); */
+
+}
 
 .Logo_in_forms{
 
@@ -9,11 +12,14 @@ body{box-sizing: border-box; font-family: 'e-ukr';}
     font-size: 28px;
 }
 
-/* .conteiner_form{
-
-} */
+.conteiner_form{
+    display: flex;
+    /* z-index: 10;  */
+    position: relative; 
+}
 
 .form{
+    /* background-color: rgb(255, 255, 255); */
     border-radius: 15px;
     width: 450px;
 }
@@ -28,6 +34,14 @@ input{
 }
 input:focus{
     border: 0.3px solid  rgb(0, 119, 255);
+    outline: none;
+}
+.input-Tritanopia:focus{
+    border: 0.3px solid  #ff3333;
+    outline: none;
+}
+.input-MonoHromazia:focus{
+    border: 0.3px solid  #545454;
     outline: none;
 }
 label{
@@ -48,6 +62,24 @@ label{
   margin-bottom: 7px;
 
 }
+.contunium .bc-Tritanopia{
+    width: 275px;
+    border-radius: 6px;
+    color: white;
+    background-color: #000000;
+    border: solid 0.5px white;
+    margin-bottom: 7px;
+  
+  }
+  .contunium .bc-MonoHromazia{
+    width: 275px;
+    border-radius: 6px;
+    color: white;
+    background-color: #000000;
+    border: solid 0.5px white;
+    margin-bottom: 7px;
+  
+  }
 .contunium .bc:hover{
     color: black;
     background-color:   rgb(151, 149, 149);
@@ -65,17 +97,19 @@ label{
     font-size: 12px;
 }
 .Do_you_have_account a{ margin-left: 5px;}
-.Do_you_have_account a{ margin-left: 5px; text-decoration: none; color: black;} 
+.Do_you_have_account a{ margin-left: 5px; text-decoration: none; } 
 .Do_you_have_account a:hover{text-decoration: underline;} 
 
 .google-button{
     margin-left: 13px;
     margin-top: 7px;
     padding: 3px;
+    padding-left: 9px;
     display: flex;
     justify-content: center;
     text-decoration: none;
     color: black;
+    background-color: white;
     border-radius: 7px;
     border: 1.0px solid rgb(164, 164, 164);}
    
@@ -108,7 +142,6 @@ label{
 } */
 .restore_conteiner .choose_restore{
     text-decoration: none;
-    color: black;
     font-size: 14px;
 }
 .restore_conteiner .choose_restore:hover{text-decoration: underline;}

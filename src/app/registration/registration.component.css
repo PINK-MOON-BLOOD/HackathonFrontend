@@ -9,7 +9,17 @@ body{box-sizing: border-box; font-family: 'e-ukr';}
     font-size: 28px;
 }
 .error {
-    color: red;
+    /* color: red; */
+    text-align: center;
+    margin: 1rem 0;
+  }
+  .error-Protonopia {
+    color: #ffcc00;
+    text-align: center;
+    margin: 1rem 0;
+  }
+  .error-MonoHromazia {
+    color: #000000;
     text-align: center;
     margin: 1rem 0;
   }
@@ -22,6 +32,7 @@ body{box-sizing: border-box; font-family: 'e-ukr';}
 .form{
     border-radius: 15px;
     width: 450px;
+    
 }
 input{
     width: 275px;
@@ -34,6 +45,14 @@ input{
 }
 input:focus{
     border: 0.3px solid  rgb(0, 119, 255);
+    outline: none;
+}
+.input-Tritanopia:focus{
+    border: 0.3px solid  #ff3333;
+    outline: none;
+}
+.input-MonoHromazia:focus{
+    border: 0.3px solid  #545454;
     outline: none;
 }
 label{
@@ -54,6 +73,25 @@ label{
   margin-bottom: 7px;
 
 }
+
+.contunium .bc-Tritanopia{
+    width: 275px;
+    border-radius: 6px;
+    color: white;
+    background-color: #000000;
+    border: solid 0.5px white;
+    margin-bottom: 7px;
+  
+  }
+  .contunium .bc-MonoHromazia{
+    width: 275px;
+    border-radius: 6px;
+    color: white;
+    background-color: #000000;
+    border: solid 0.5px white;
+    margin-bottom: 7px;
+  
+  }
 .contunium .bc:hover{
     color: black;
     background-color:   rgb(151, 149, 149);
@@ -70,7 +108,7 @@ label{
     margin-bottom: 0;
     font-size: 12px;
 }
-.Do_you_have_account a{ margin-left: 5px; text-decoration: none; color: black;} 
+.Do_you_have_account a{ margin-left: 5px; text-decoration: none; } 
 .Do_you_have_account a:hover{text-decoration: underline;} 
 
 
@@ -78,12 +116,15 @@ label{
     margin-left: 13px;
     margin-top: 7px;
     padding: 3px;
+    padding-right: 8px;
     display: flex;
     justify-content: center;
     text-decoration: none;
     color: black;
+    background-color: white;
     border-radius: 7px;
-    border: 1.0px solid rgb(164, 164, 164);}
+    border: 1.0px solid rgb(164, 164, 164);
+}
    
     
 .Google_logo{
@@ -107,5 +148,5 @@ label{
     background: transparent;
     position: absolute;
     right: 5px;
-    top:5px;
+    top:20px;
 }

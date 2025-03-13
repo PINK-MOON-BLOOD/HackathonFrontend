@@ -23,13 +23,24 @@ img{
     width: 275px;
     
 }
+.list_a .for_email-Tritanopia{
+    display: flex;
+    justify-content: center;
+    text-decoration: none;
+    margin-bottom: 30px;
+    background-color: #000000;
+    border-radius: 8px;
+    color: white;
+    width: 275px;
+    
+}
+
 .list_a .for_phone:hover{     background-color:   rgb(151, 149, 149); color: rgb(0, 0, 0); transition: 0.2s ease-in-out; }
 
 .list_a .back{
     display: flex;
     justify-content: center;
     text-decoration: none;
-    color: black;
 }
 
 .drop_password{ font-size: 28px;}
@@ -45,6 +56,14 @@ input{
 }
 input:focus{
     border: 0.3px solid  rgb(0, 119, 255);
+    outline: none;
+}
+.input-Tritanopia:focus{
+    border: 0.3px solid  #ff3333;
+    outline: none;
+}
+.input-MonoHromazia:focus{
+    border: 0.3px solid  #545454;
     outline: none;
 }
 label{

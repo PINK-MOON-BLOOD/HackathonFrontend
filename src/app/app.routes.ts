@@ -12,11 +12,12 @@ import { RegistrationComponent } from './registration/registration.component';
 import { ChooseRestoreComponent } from './choose-restore/choose-restore.component';
 import { RestoreEmailComponent } from './restore-email/restore-email.component';
 import { RestorePhoneComponent } from './restore-phone/restore-phone.component';
-import { LoginAdnRegestService } from './login-adn-regest.service';
 import { NewPassword1Component } from './new-password1/new-password1.component';
 import { NewPassword2Component } from './new-password2/new-password2.component';
 import { NewPage2OnlytextComponent } from './new-page2-onlytext/new-page2-onlytext.component';
-
+import { LoginAdnRegestService } from './login-adn-regest.service';
+import { SpeakTextService } from './speak-text.service';
+import { DaltonizmService } from './daltonizm.service';
 
 export const routes: Routes = [
   {path: 'page1', component:Page1Component },

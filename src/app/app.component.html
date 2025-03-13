@@ -27,63 +27,92 @@
           </ul>
         </li> -->
 
-<div class="d-flex bg-nav">
-  <nav class="navbar navbar-expand-lg ">
-  <div class="container-fluid">
-    <a class="navbar-brand" href=""> <img class="Learnix_logo" src="/Logo.svg" alt="LOGO"></a>
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse ms-2  navi" id="navbarSupportedContent">
-      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="">Головна</a> </li>
-        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page1">Сторінка 1</a> </li>
-        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page2">Сторінка 2</a> </li>
-        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page3">Сторінка 3</a> </li>
-        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page4">Сторінка 4</a> </li>
-        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page5">Сторінка 5</a> </li>
-        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page6">Сторінка 6</a> </li>
-        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page7">Сторінка 7</a> </li>
-        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page8">Про нас</a> </li>
-        <div class="mx-5 d-flex gap-4">
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="login"  *ngIf="!isLogged">Увійти</a> </li>
-          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="registration"  *ngIf="!isLogged">Реєстрація</a> </li>
-          <div *ngIf="isLogged" class="login">
-            <li class="nav-item"> <button class="btn_out" (click)="logout()">Вийти</button></li>
+<body>
+  <div class="d-flex bg-nav" [ngClass]="selectedClass" >
+
+    <nav class="navbar navbar-expand-lg ">
+    <div class="container-fluid">
+      <a class="navbar-brand" href=""> <img class="Learnix_logo" src="/Logo.svg" alt="LOGO"></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse ms-2  navi" id="navbarSupportedContent" [ngClass]="selectedClass">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="">Головна</a> </li>
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page1">Сторінка 1</a> </li>
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page2">Сторінка 2</a> </li>
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page3">Сторінка 3</a> </li>
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page4">Сторінка 4</a> </li>
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page5">Сторінка 5</a> </li>
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page6">Сторінка 6</a> </li>
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page7">Сторінка 7</a> </li>
+          <li class="nav-item"> <a class="nav-link active" aria-current="page" href="page8" >Про нас</a> </li>
+          <div class="mx-5 d-flex gap-4">
+            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="login"  *ngIf="!isLogged">Увійти</a> </li>
+            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="registration"  *ngIf="!isLogged">Реєстрація</a> </li>
+            <div *ngIf="isLogged" class="login">
+              <li class="nav-item"> <button class="btn_out" (click)="logout()">Вийти</button></li>
+            </div>
           </div>
-        </div>
-      </ul>
+        </ul>
+      </div>
     </div>
+  </nav>
   </div>
-</nav>
-</div>
-
-<p>Головна сторінка</p>
-<router-outlet/>
-
-
-<div>
-
-  <footer class="text-center text-lg-start" style="background-color: #db6930;">
-    <div class="container d-flex justify-content-center py-5">
-      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
-        <i class="bi bi-facebook"></i>
-      </button>
-      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
-        <i class="bi bi-youtube"></i>
-      </button>
-      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
-        <i class="bi bi-instagram"></i>
-      </button>
-      <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
-        <i class="bi bi-twitter"></i>
-      </button>
-    </div>
-    
-    <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
-      © 2025 Copyright
-    </div>
-  </footer>
   
+
+    <div class="Daltonik_dropdown">
+      <i class="bi bi-file-text-fill icon" 
+      (click)="toggleDropdown()" [ngClass]="{'dark_icon': isDarkMode}"></i>
+      <ul class="dropdown_content" *ngIf="isOpen">
+         <li><button (click)="Reset_style()">Відсутність дальтонізму</button> </li>
+      <li><button (click)="Protonopia()">Протанопія (червоний колір)</button></li>
+      <li><button (click)="Deuternopiy()">Деутеранопія (зелений колір)</button></li>
+      <li><button (click)="Tritanopia()">Тританопія (синій колір)</button></li>
+      <li><button (click)="MonoHromazia()">Монохромазія (світ бачиться лише в відтінках сірого)</button></li>
+    </ul>
+  </div>
+
+  <div class="DarkMode_dropdown">
+    <i class="bi bi-brightness-alt-high-fill icon_sun "  [ngClass]="{'dark_icon_sun': isDarkMode}"
+    (click)="toggleDropdown_style()"></i>
+    <ul class="dropdown_content_Style" *ngIf="isOpen_StyleMode">
+       <li><button class="text-center" id="toggleTheme" (click)="toggleTheme()">{{isDarkMode ? 'Світлий режим' : 'Темний режим'}}</button> </li>
+       
+    <!-- <li><button (click)="Protonopia()">Протанопія (червоний колір)</button></li>
+    <li><button (click)="Deuternopiy()">Деутеранопія (зелений колір)</button></li>
+    <li><button (click)="Tritanopia()">Тританопія (синій колір)</button></li>
+    <li><button (click)="MonoHromazia()">Монохромазія (світ бачиться лише в відтінках сірого)</button></li> -->
+  </ul>
 </div>
+  
+  <router-outlet/>
+  
+  
+  <div>
+  
+    <footer class="text-center text-lg-start footer" [ngClass]="  selectedClass">
+      <div class="container d-flex justify-content-center py-5">
+        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 facebook" style="background-color: #54456b;" > 
+          <i class="bi bi-facebook" ></i>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+          <i class="bi bi-youtube"></i>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+          <i class="bi bi-instagram"></i>
+        </button>
+        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
+          <i class="bi bi-twitter"></i>
+        </button>
+      </div>
+      
+      <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
+        © 2025 Copyright
+      </div>
+    </footer>
+    
+  </div>
+</body>
+
 

@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http'
+import { DaltonizmService } from '../daltonizm.service';
+
 @Component({
   selector: 'app-restore-email',
   standalone: true,
@@ -11,11 +13,19 @@ import { HttpClientModule } from '@angular/common/http'
   templateUrl: './restore-email.component.html',
   styleUrl: './restore-email.component.css'
 })
-export class RestoreEmailComponent {
+export class RestoreEmailComponent implements OnInit {
   Email_user: string = '';
   errorMessage: string | null = null;
 
-  constructor(private router: Router, private http: HttpClient) {}
+  public selectedClass: any = {};
+
+  constructor(private router: Router, private http: HttpClient, private daltonizmService : DaltonizmService) {}
+
+  ngOnInit(): void {
+    this.daltonizmService.selectedClass$.subscribe(selectedClass=>{
+      this.selectedClass = selectedClass;
+    });
+  }
 
   Restore_email(){
     const Restore_emailData ={

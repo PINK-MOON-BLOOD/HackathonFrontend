@@ -1,9 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { HttpClientModule } from '@angular/common/http';
 import { Router } from '@angular/router';
+import { DaltonizmService } from '../daltonizm.service';
+
 @Component({
   selector: 'app-registration',
   standalone: true,
@@ -11,8 +13,10 @@ import { Router } from '@angular/router';
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.css'
 })
-export class RegistrationComponent {
+export class RegistrationComponent implements OnInit {
   passwordVisible: boolean = false;
+
+  selectedClass: any = {};
 
   Name_user: string ='';
   Surname_user: string ='';
@@ -26,7 +30,13 @@ export class RegistrationComponent {
     this.passwordVisible = !this.passwordVisible;
   }
 
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router, private daltonizmService : DaltonizmService) {}
+
+  ngOnInit(): void {
+      this.daltonizmService.selectedClass$.subscribe(selectedClass =>{ 
+          this.selectedClass = selectedClass;
+      });
+  }
 
   Login_with_Google(){
 

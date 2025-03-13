@@ -1,10 +1,11 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { HttpClientModule } from '@angular/common/http';
 import { LoginAdnRegestService } from '../login-adn-regest.service';
+import { DaltonizmService } from '../daltonizm.service';
 
 @Component({
   selector: 'app-login',
@@ -14,8 +15,10 @@ import { LoginAdnRegestService } from '../login-adn-regest.service';
   styleUrl: './login.component.css'
 })
 
-export class LoginComponent{
+export class LoginComponent implements OnInit{
   passwordVisible: boolean = false;
+
+  selectedClass: any ={};
 
   Login_user: string ='';
   Password_user: string ='';
@@ -26,9 +29,16 @@ export class LoginComponent{
     this.passwordVisible = !this.passwordVisible;
   }
 
-  constructor(private http: HttpClient, private router: Router, private loginAdnRegestService: LoginAdnRegestService,) {
+  constructor(private http: HttpClient, private router: Router, private loginAdnRegestService: LoginAdnRegestService,  private daltonizmService: DaltonizmService,) {
+    
+  }
+  ngOnInit(): void {
     this.loginAdnRegestService.isLoggedIn$.subscribe(isLoggedIn =>{
       this.isLoggedIn = isLoggedIn;
+    });
+
+    this,this.daltonizmService.selectedClass$.subscribe(selectedClass =>{
+      this.selectedClass = selectedClass;
     });
   }
 

@@ -67,7 +67,7 @@ body{
             place-items: center;
           }
           
-          .Title1 h1,.Title2 h1,.Title3 h1{ font-family: "e-ukr"; color: #000000;}
+          .Title1 h1,.Title2 h1,.Title3 h1{ font-family: "e-ukr"; }
           
           .Title1 p,.Title2 p ,.Title3 p{
             font-family: "e-ukr";
