@@ -59,10 +59,10 @@
     </div>
   </nav>
   </div>
-  
+
 
     <div class="Daltonik_dropdown">
-      <i class="bi bi-file-text-fill icon" 
+      <i class="bi bi-file-text-fill icon"
       (click)="toggleDropdown()" [ngClass]="{'dark_icon': isDarkMode}"></i>
       <ul class="dropdown_content" *ngIf="isOpen">
          <li><button (click)="Reset_style()">Відсутність дальтонізму</button> </li>
@@ -78,22 +78,22 @@
     (click)="toggleDropdown_style()"></i>
     <ul class="dropdown_content_Style" *ngIf="isOpen_StyleMode">
        <li><button class="text-center" id="toggleTheme" (click)="toggleTheme()">{{isDarkMode ? 'Світлий режим' : 'Темний режим'}}</button> </li>
-       
+
     <!-- <li><button (click)="Protonopia()">Протанопія (червоний колір)</button></li>
     <li><button (click)="Deuternopiy()">Деутеранопія (зелений колір)</button></li>
     <li><button (click)="Tritanopia()">Тританопія (синій колір)</button></li>
     <li><button (click)="MonoHromazia()">Монохромазія (світ бачиться лише в відтінках сірого)</button></li> -->
   </ul>
 </div>
-  
+
   <router-outlet/>
-  
-  
+
+
   <div>
-  
+
     <footer class="text-center text-lg-start footer" [ngClass]="  selectedClass">
       <div class="container d-flex justify-content-center py-5">
-        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 facebook" style="background-color: #54456b;" > 
+        <button type="button" class="btn btn-primary btn-lg btn-floating mx-2 facebook" style="background-color: #54456b;" >
           <i class="bi bi-facebook" ></i>
         </button>
         <button type="button" class="btn btn-primary btn-lg btn-floating mx-2" style="background-color: #54456b;">
@@ -106,12 +106,12 @@
           <i class="bi bi-twitter"></i>
         </button>
       </div>
-      
+
       <div class="text-center text-white p-3" style="background-color: rgba(0, 0, 0, 0.2);">
         © 2025 Copyright
       </div>
     </footer>
-    
+
   </div>
 </body>
 
